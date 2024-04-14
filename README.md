@@ -41,9 +41,10 @@ This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Appl
 
 | Package              | Version  |
 |----------------------|----------|
+| Python               | 3.9.6    |
+| Django               | 3.2.8    |
 | argon2-cffi          | 21.1.0   |
 | celery               | 5.1.2    |
-| Django               | 3.2.8    |
 | django-active-link   | 0.1.8    |
 | django-crispy-forms  | 1.12.0   |
 | django-debug-toolbar | 3.2.2    |
