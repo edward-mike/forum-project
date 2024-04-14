@@ -37,5 +37,26 @@ This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Appl
 ### User Profile Page
 ![Article Page](/screenshots/user_profile_page.png)
 
+# Requirements
+
+| Package              | Version  |
+|----------------------|----------|
+| argon2-cffi          | 21.1.0   |
+| celery               | 5.1.2    |
+| Django               | 3.2.8    |
+| django-active-link   | 0.1.8    |
+| django-crispy-forms  | 1.12.0   |
+| django-debug-toolbar | 3.2.2    |
+| django-ratelimit     | 3.0.1    |
+| django-recaptcha     | 2.0.6    |
+| django-taggit        | 1.5.1    |
+| humanize             | 4.9.0    |
+| pillow               | 10.3.0   |
+| psycopg2-binary      | 2.9.9    |
+| python-dateutil      | 2.8.2    |
+| python-decouple      | 3.4      |
+| readtime             | 1.1.1    |
+
+
 ## Installation
 **Steps to install are coming soon. I need to deal with a lot of package versions.**
