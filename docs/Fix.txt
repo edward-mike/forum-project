@@ -1,6 +1,7 @@
 Primary:
 - PostgreSQL database setup
 - Celery and Redis setup and configuration
+- other issues
 
 Secondary:
 - Front-End Styling 
