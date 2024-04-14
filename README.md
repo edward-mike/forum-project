@@ -59,5 +59,9 @@ This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Appl
 | readtime             | 1.1.1    |
 
 
-## Installation
-**Steps to install are coming soon. I need to deal with a lot of package versions.**
+## Install and Run.
+**Steps to install are coming soon.**
+
+## Author
+
+- Author : [Edward Mike](https://www.linkedin.com/in/edward-mike/)
