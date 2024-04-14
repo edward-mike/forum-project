@@ -5,10 +5,12 @@ This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Appl
 ## Features
 
 - User authentication and authorization
+- online, offline users
+- ranking articles and boards
 - Creating, editing, and deleting articles
 - Commenting on articles
 - Articles viewers counter, read-count of contents
-- Asynchronous task processing with Celery and Redis
+- Asynchronous task processing with Celery and Redis (used in creating user account, etc.)
 - Responsive frontend design with Bootstrap
 - Interactive UI elements using jQuery, Ajax, and other JavaScript libraries
 
