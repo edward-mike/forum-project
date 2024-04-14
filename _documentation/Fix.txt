@@ -1,0 +1,6 @@
+Primary:
+- PostgreSQL database setup
+- Celery and Redis setup and configuration
+
+Secondary:
+- Front-End Styling 
