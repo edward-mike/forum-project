@@ -1,7 +1,8 @@
 Primary:
 - PostgreSQL database setup
 - Celery and Redis setup and configuration
-- other issues
+- other issues :
+    * Remove Google recapture
 
 Secondary:
 - Front-End Styling 
