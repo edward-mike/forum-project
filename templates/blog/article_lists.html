@@ -30,19 +30,23 @@
 								  <div class="card-body text-center" style="border-bottom: 1px solid #dfdfdf;position: relative;">
 								    <img src="{{ request.user.get_user_avatar }}"/ class="card-user-avatar avatar-shadow">
 								    <span class="online-status"></span>
-								    <p class="card-text">
-								    	<span class="card-link"><b>({{ request.user.username }})</b></span>
-								    </p>
-								    <p class="card-text">
-								    	<span class="card-link">[[ user full-name here ]]</span>
-								    </p>
+									{% if request.user.full_name %}
+										<p class="card-text text-center mt-3">
+											<span class="card-link">{{ request.user.full_name.title }}</span>
+										</p>
+									{% else %}
+										<p class="card-text text-center mt-3">
+											<span class="card-link">{{ request.user.username.title }}</span>
+										</p>
+									{% endif %}
+
 								  </div>
-								  	<div class="card-text  clearfix mb-3 text-center">
-								  		<p><i class="fa fa-line-chart" style="color: #41ad41;
+								  	<div class="card-text mb-3 text-center">
+								  		<p class="text-center mt-2"><i class="fa fa-line-chart" style="color: #41ad41;
     									font-size: 20px;
     									margin-left: 4px;
     									vertical-align: -webkit-baseline-middle;
-										"></i> <span style="vertical-align: -webkit-baseline-middle;">Site Stats.</span></p>
+										"></i> <span style="vertical-align: -webkit-baseline-middle;">Site Stats</span></p>
 								  	</div>
 								  	<p class="ml-4">Boards Ranking (by <b>views</b>)</p>
 								 	{% for board in board_qs %}

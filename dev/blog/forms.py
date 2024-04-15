@@ -74,15 +74,15 @@ class ArticleCreateForm(forms.ModelForm):
 		return self.cleaned_data["tags"]
 
 
-	def clean_content(self):
+	# def clean_content(self):
 
-		content = self.cleaned_data.get('content')
+	# 	content = self.cleaned_data.get('content')
 
-		required_len = int(self.fields['content'].max_length / 2) - 120 # 105
+	# 	required_len = int(self.fields['content'].max_length / 2) - 120 # 105
 
-		if len(content) < required_len:
-			raise forms.ValidationError('Minimum length of content is {len_}'.format(len_=required_len))
-		return self.cleaned_data['content']
+	# 	if len(content) < required_len:
+	# 		raise forms.ValidationError('Minimum length of content is {len_}'.format(len_=required_len))
+	# 	return self.cleaned_data['content']
 
 
 	def get_article_status(self):

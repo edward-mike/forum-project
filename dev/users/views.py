@@ -17,20 +17,17 @@ def user_profile(request,username,template_name="accounts/user/user.html"):
 
 	[*] user articles
 
-	[*] user questions/answers
-
 	[*] commented articles as done in Hashnode.com
 
-	[*] followers & following
+	[*] followers & following counts
 
 	[*] buttons - follow/unfollow (not owner)
-
-	+ Link to Settings
 			
 	"""
 
 	try:
 		user = User._default_manager.get(username__iexact=username)
+		print(user.full_name.title())
 	except User.DoesNotExist:
 		raise Http404
 

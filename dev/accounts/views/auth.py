@@ -118,7 +118,6 @@ def login(request):
 
 	if request.method == "POST":
 		_next = get_next(request)
-		print("next url : ",_next)
 
 		login_fm = AuthenticationForm(data=request.POST)
 
@@ -129,6 +128,7 @@ def login(request):
 			remember_me = cd["remember_me"]
 
 			user = auth.authenticate(username=username,password=password)
+   
 			if not user is None and user.is_active:
 
 				auth.login(request,user,backend=backend_auth)

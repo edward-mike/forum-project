@@ -171,15 +171,6 @@ DATABASES = {
 # https://docs.djangoproject.com/en/dev/ref/settings/#caches
 # http://mtweb.cs.ucl.ac.uk/mus/arabidopsis/xiang/software/src.Django-1.6.1/docs/topics/cache.txt
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'wger-cache',
-        'TIMEOUT': 30 * 24 * 60 * 60,  # Cache for a month
-    }
-}
-
-CACHE_TTL = 60 * 3 # 60sec * 3 = 3 min
 
 # CACHES = {
 #     "default": {
@@ -292,7 +283,7 @@ LOGOUT_URL = 'accounts:logout'
 # https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers
 PASSWORD_HASHERS = [
     # https://docs.djangoproject.com/en/dev/topics/auth/passwords/#using-argon2-with-django
-    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    # "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",

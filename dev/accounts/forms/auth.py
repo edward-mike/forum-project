@@ -11,6 +11,7 @@ from django.db import IntegrityError
 from django.utils import timezone
 from django import forms as f
 from django.apps import apps
+from django.contrib.auth import authenticate
 
 # Third-Party
 from captcha.fields import ReCaptchaField
@@ -65,24 +66,30 @@ class AuthenticationForm(f.Form,AuthenticationMixin):
  
 
     def clean(self):
-        from django.contrib.auth import authenticate
-
-        username = self.cleaned_data.get("username")
-        password = self.cleaned_data.get("password")
+        username = self.cleaned_data.get("username").strip()
+        password = self.cleaned_data.get("password").strip()
+        
+        # Debugging print statements
+        print("USERNAME:", username)
+        print("PASSWORD:", password)
 
         if username and password:
-            self.user_cache = authenticate(username=username, password=password)
+            user = authenticate(username=username, password=password)
+            print("USER AUTH:", user)
 
-            if self.user_cache is None or not self.user_cache.is_active:
+            if user is None or not user.is_active:
                 raise ValidationError(
-                        self.error_messages["invalid_login"], code="invalid_login"
+                    self.error_messages["invalid_login"], code="invalid_login"
                 )
             else:
-                self.confirm_login_for_request(self.user_cache)
+                # Assuming `confirm_login_for_request` is a custom method
+                self.confirm_login_for_request(user)
         else:
-            raise ValidationError(self.error_messages["empty_data"], code="empty_data")
-        return self.cleaned_data
+            raise ValidationError(
+                self.error_messages["empty_data"], code="empty_data"
+            )
 
+        return self.cleaned_data
 
     def confirm_login_for_request(self,user):
         self.confirm_user_active(user)
