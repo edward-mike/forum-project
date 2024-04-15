@@ -25,13 +25,14 @@ SECRET_KEY = env(
 DEBUG = True
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost","127.0.0.1"]
+ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=Csv())
 
 
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL regex.
 ADMIN_URL = env('ADMIN_URL',default=r"^admin/")
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
     ('admin', 'admin@example.com'), ('admin2', 'admin2@example.com'),
@@ -136,7 +137,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                # project_related context-processors
+                # project related context-processors
                 "dev.core.context_processors.site_informations",
                 "dev.core.context_processors.authenticated_user_data",
             ],
@@ -283,7 +284,7 @@ LOGOUT_URL = 'accounts:logout'
 # https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers
 PASSWORD_HASHERS = [
     # https://docs.djangoproject.com/en/dev/topics/auth/passwords/#using-argon2-with-django
-    # "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
@@ -305,7 +306,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 #
 # Ignore these URLs if they cause 404
-#
 IGNORABLE_404_URLS = (re.compile(r'^/favicon\.ico$'), )
 
 # GENERAL
@@ -350,7 +350,6 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # DJANGO-DEBUG-TOOLBAR
 # ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
@@ -366,7 +365,6 @@ if DEBUG:
     # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
     INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
 
-
 # DATE FORMAT
 # https://docs.djangoproject.com/en/3.2/ref/settings/#date-format
 DATE_INPUT_FORMATS = (
@@ -379,18 +377,12 @@ DATE_INPUT_FORMATS = (
 # https://docs.djangoproject.com/en/3.2/ref/contrib/messages/
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-# MESSAGE FRAMEWORK
 # https://docs.djangoproject.com/en/3.2/ref/contrib/messages/
 MESSAGE_TAGS = {
-
         messages.DEBUG: 'secondary', # alert-secondary
-
         messages.INFO: 'info', # alert-info
-
         messages.SUCCESS: 'success', # alert-success
-
         messages.WARNING: 'warning', # alert-warning
-
         messages.ERROR: 'danger', # alert-danger
  }
 
@@ -402,7 +394,6 @@ PROJECT_NAME = "Forum"
 
 PROJECT_DOMAIN = "Forum.com"
 
-# Random avatar path
 RANDOM_AVATAR_PATH = os.path.join(MEDIA_ROOT,'random_avatars') 
 
 # Crispy-forms
@@ -412,42 +403,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Taggit
 # https://django-taggit.readthedocs.io/en/latest/index.html
 TAGGIT_CASE_INSENSITIVE = False 
- 
-
-# REDIS setup
-# ------------------------------------------------------------------------------
-# REDIS_URL = 'redis://127.0.0.1:6379/'
-
-# CELERY setup
-# ------------------------------------------------------------------------------
-
-# CELERY_BROKER_URL = REDIS_URL
-
-# CELERY_RESULT_BACKEND = REDIS_URL
-
-# CELERY_ACCEPT_CONTENT = ['application/json']
-
-# CELERY_TASK_SERIALIZER = 'json'
-
-# CELERY_RESULT_SERIALIZER = 'json'
-
-# CELERY_TIMEZONE = TIME_ZONE
-
-# CELERY_TASK_ALWAYS_EAGER = not CELERY_BROKER_URL
-
-# CELERY_TASK_TIME_LIMIT = 5 * 60
-
-# CELERY_TASK_SOFT_TIME_LIMIT = 60
-
-
-# Third Party Keys & Secrets
-
-# Google Recapture
-# ----------------------------------------------------------------------------
-# RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
-
-# RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
-
-# RECAPTCHA_REQUIRED_SCORE = env("RECAPTCHA_REQUIRED_SCORE",default=0.85,cast=float)
-
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+
+################################################################

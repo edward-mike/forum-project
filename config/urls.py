@@ -23,7 +23,7 @@ from django.views import defaults as default_views
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
-    path('admin/', admin.site.urls),
+    path(settings.ADMIN_URL, admin.site.urls),
     path('',include('dev.pages.urls',namespace='pages')),
     path('a/',include('dev.accounts.urls',namespace='accounts')),
     path('u/',include('dev.users.urls',namespace='users')),
