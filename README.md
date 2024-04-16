@@ -1,4 +1,4 @@
-# Blog Like Forum Application 😊
+# Simple Forum Application 😊
 
 This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Application](https://github.com/BEMMIO/Forum_like_Application) (**my old github repo.**), and further developed using Django and PostgreSQL for the backend, Celery and Redis for asynchronous task processing, and Bootstrap, CSS, jQuery, Ajax, and other JavaScript libraries for the frontend.
 
