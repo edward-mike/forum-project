@@ -15,7 +15,7 @@ This is a simple Blog Like Forum application cloned from [BEMMIO/Forum_like_Appl
 - Interactive UI elements using jQuery, Ajax, and other JavaScript libraries
 
 ## Project source.
-- This project was cloned from my old github account **Bemmio**, i worked on years ago. Now, i want to use this project to learn Cloud/DevOps.
+- This project was cloned from my old github account **Bemmio**
 
 ## Screenshots
 
